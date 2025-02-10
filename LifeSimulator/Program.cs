@@ -1,4 +1,6 @@
 ﻿//                                                          Life Simulator
+using LifeSimulator;
+
 class Program
 {
     static void SpareLine(int lines)
@@ -8,6 +10,7 @@ class Program
             Console.WriteLine();
         }
     }
+
     static void Main()
     {
         Console.WriteLine("            |--------------|          ");
@@ -123,10 +126,95 @@ class Program
                 break;
             }
         }
-        Console.WriteLine($"Your name is {name}");
-        Console.WriteLine($"Your age is {age}");
+
+        List<Job> jobs = new List<Job>();
+        
+        jobs.Add(new Job("Developer", 1));
+        jobs.Add(new Job("Teacher", 2)); 
+        jobs.Add(new Job("Plumber", 3));
+        jobs.Add(new Job("electrician", 4));
+        jobs.Add(new Job("Accountant", 5));
+        jobs.Add(new Job("Chef", 6));
+        jobs.Add(new Job("Real Estate Agent", 7));
+        jobs.Add(new Job("FireFighter", 8));
+        jobs.Add(new Job("Butcher", 9));
+        jobs.Add(new Job("Police Officer", 10));
+        
 
 
+
+        int i = 0;
+
+        while (true)
+        {
+            SpareLine(3);
+            Console.WriteLine("What will your job be? : ");
+            SpareLine(2);
+
+            foreach (var job in jobs)
+            {
+                i++;
+                job.Index = i;
+                Console.WriteLine(job.JobName + $" [{job.Index}]");
+            }
+
+            Console.Write("-> ");
+            string userJobIndex = Console.ReadLine();
+
+            var jobName = string.Empty;
+
+            switch (userJobIndex)
+            {
+
+                case "1":
+                    jobName = jobs[0].JobName;
+                    break;
+
+                case "2":
+                    jobName = jobs[1].JobName;
+                    break;
+
+                case "3":
+                    jobName = jobs[2].JobName;
+                    break;
+
+                case "4":
+                    jobName = jobs[3].JobName;
+                    break;
+
+                case "5":
+                    jobName = jobs[4].JobName;
+                    break;
+
+                case "6":
+                    jobName = jobs[5].JobName;
+                    break;
+
+                case "7":
+                    jobName = jobs[6].JobName;
+                    break;
+
+                case "8":
+                    jobName = jobs[7].JobName;
+                    break;
+
+                case "9":
+                    jobName = jobs[8].JobName;
+                    break;
+
+                case "10":
+                    jobName = jobs[9].JobName;
+                    break;
+
+                default:
+                    continue;
+            }
+            User user = new User(name,age,jobName);
+            Console.WriteLine($"Yoour name is {user.Name}, You are {user.Age} years old" +
+                              $" and your profession is a {user.Job}!");
+            break;
+        }
+        
     }
 }
 
