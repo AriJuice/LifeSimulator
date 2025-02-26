@@ -8,7 +8,6 @@ namespace LifeSimulator
 {
     internal class Job
     {
-
         public string JobName { get; set; }
         public int Index { get; set; }
 
